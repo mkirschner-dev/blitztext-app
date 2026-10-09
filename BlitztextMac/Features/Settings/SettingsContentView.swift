@@ -819,11 +819,19 @@ private struct SettingsBackupSection: View {
                 .fixedSize(horizontal: false, vertical: true)
 
             HStack(spacing: 8) {
-                Button("Einstellungen exportieren") { exportSettings() }
-                    .buttonStyle(SubtleButtonStyle())
+                Button { exportSettings() } label: {
+                    Text("Exportieren")
+                        .frame(maxWidth: .infinity, minHeight: 34)
+                }
+                .buttonStyle(SubtleButtonStyle())
+                .accessibilityLabel("Einstellungen exportieren")
 
-                Button("Einstellungen importieren") { chooseSettingsImport() }
-                    .buttonStyle(SubtleButtonStyle())
+                Button { chooseSettingsImport() } label: {
+                    Text("Importieren")
+                        .frame(maxWidth: .infinity, minHeight: 34)
+                }
+                .buttonStyle(SubtleButtonStyle())
+                .accessibilityLabel("Einstellungen importieren")
             }
 
             if let statusText {
